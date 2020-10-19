@@ -15,7 +15,7 @@ var connection = MySQL.createConnection({
   host     : 'localhost',
   user     : 'root',
   database : 'fake_users',
-  password: 'pwd'
+  password : 'pwd'
 });
 
 app.get("/", function(req, res){
@@ -24,6 +24,8 @@ app.get("/", function(req, res){
 
 });
 
+
+// List all users informations from the database
 app.get("/listAll", function(req, res){
     var q = "SELECT * FROM users";
     let usersData = []

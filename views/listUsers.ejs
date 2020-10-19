@@ -1,23 +1,25 @@
 <head>
-
+    <link rel="stylesheet" href="/home.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>Select a option</h1>
-        <a href="/">Home</a>
-        <form method="GET" action='/listAll'>
-            <button>Show All users</button>
-        </form>
-        <form method="GET" action='/listGmail'>
-            <button>Show Gmail users</button>
-        </form>
-        <form method="GET" action='/listYahoo'>
-            <button>Show Yahoo users</button>
-        </form>
-        <form method="GET" action='/listHotmail'>
-            <button>Show Hotmail users</button>
-        </form>
+        <h1>Fake Users database</h1>
+        <div>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/listAll">Show All users</a></li>
+                <li><a href="/listGmail">Show Gmail users</a></li>
+                <li><a href="/listYahoo">Show Yahoo users</a></li>
+                <li><a href="/listHotmail">Show Hotmail users</a></li>
+            </ul>
+        </div>
+        <h3>Search by filters:</h3>
+        <div class="filters">
+            <label>Name:</label>
+            <input type="text" />
+        </div>
+
         <form method="GET">
             <table>
                 <tr>
