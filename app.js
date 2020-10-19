@@ -19,16 +19,64 @@ var connection = MySQL.createConnection({
 });
 
 app.get("/", function(req, res){
-    // Find count of users in DB
-    var q = "SELECT COUNT(*) AS count FROM users";
+
+    res.render("home");
+
+});
+
+app.get("/listAll", function(req, res){
+    var q = "SELECT * FROM users";
+    let usersData = []
     connection.query(q, function(err, results){
         if(err) throw err;
-        res.render("home");
+        
+        for (i = 0 ; i < results.length ; i++) {
+            let name = results[i].name;
+            let email = results[i].email;
+            let city = results[i].city;
+            let created_at = results[i].created_at;
+            usersData.push({name, email, city, created_at})
+        }
+        res.render("listUsers", {usersData: usersData})
     });
 });
 
-app.get("/list", function(req, res){
-    var q = "SELECT * FROM users";
+app.get("/listGmail", function(req, res){
+    var q = "SELECT * FROM users where email like '%gmail%'";
+    let usersData = []
+    connection.query(q, function(err, results){
+        if(err) throw err;
+        
+        for (i = 0 ; i < results.length ; i++) {
+            let name = results[i].name;
+            let email = results[i].email;
+            let city = results[i].city;
+            let created_at = results[i].created_at;
+            usersData.push({name, email, city, created_at})
+        }
+        res.render("listUsers", {usersData: usersData})
+    });
+});
+
+app.get("/listYahoo", function(req, res){
+    var q = "SELECT * FROM users where email like '%yahoo%'";
+    let usersData = []
+    connection.query(q, function(err, results){
+        if(err) throw err;
+        
+        for (i = 0 ; i < results.length ; i++) {
+            let name = results[i].name;
+            let email = results[i].email;
+            let city = results[i].city;
+            let created_at = results[i].created_at;
+            usersData.push({name, email, city, created_at})
+        }
+        res.render("listUsers", {usersData: usersData})
+    });
+});
+
+app.get("/listHotmail", function(req, res){
+    var q = "SELECT * FROM users where email like '%hotmail%'";
     let usersData = []
     connection.query(q, function(err, results){
         if(err) throw err;

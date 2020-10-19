@@ -3,17 +3,43 @@
 </head>
 
 <body>
-    <div class="flex-container">
     <div class="container">
-        <h1>JOIN US</h1>
-        <form method="GET" action='/list'>
+        <h1>Select a option</h1>
+        <a href="/">Home</a>
+        <form method="GET" action='/listAll'>
             <button>Show All users</button>
-            <p class="lead"><strong><ul>
+        </form>
+        <form method="GET" action='/listGmail'>
+            <button>Show Gmail users</button>
+        </form>
+        <form method="GET" action='/listYahoo'>
+            <button>Show Yahoo users</button>
+        </form>
+        <form method="GET" action='/listHotmail'>
+            <button>Show Hotmail users</button>
+        </form>
+        <form method="GET">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Created at</th>
+                </tr>
                 <% for (var i = 0; i < usersData.length ; i++) { %>
-                    <li> <%= JSON.stringify(usersData[i]) %> </li>
+                    <% let name = usersData[i].name;
+                       let email = usersData[i].email;
+                       let city = usersData[i].city;
+                       let created = usersData[i].created_at; %>
+                    <tr>
+                        <td><%= name %></td> 
+                        <td><%= email %></td> 
+                        <td><%= city %></td> 
+                        <td><%= created %></td> 
+                    </tr>
                 <% } %>
-            </ul></strong> </p>
+            </table>
         </form>
     </div>
-</div>
+
 </body>
