@@ -1,0 +1,19 @@
+<head>
+
+</head>
+
+<body>
+    <div class="flex-container">
+    <div class="container">
+        <h1>JOIN US</h1>
+        <form method="GET" action='/list'>
+            <button>Show All users</button>
+            <p class="lead"><strong><ul>
+                <% for (var i = 0; i < usersData.length ; i++) { %>
+                    <li> <%= JSON.stringify(usersData[i]) %> </li>
+                <% } %>
+            </ul></strong> </p>
+        </form>
+    </div>
+</div>
+</body>

@@ -1,11 +1,10 @@
 // File to generate and insert fake data to database.
-
-import MySQL from 'mysql';
-import Faker from 'faker';
+const Mysql = require('mysql');
+const Faker = require('faker');
 
 
 // Connection to database.
-let connection = MySQL.createConnection({
+let connection = Mysql.createConnection({
   host     : 'localhost',
   user     : 'root',
   database : 'fake_users',
@@ -15,7 +14,7 @@ let connection = MySQL.createConnection({
 
 // Generate the fake data to insert to fake data array.
 let fake_data = [];
-for(let i = 0; i < 3000; i++){
+for(let i = 0; i < 2000; i++){
     fake_data.push([
         Faker.internet.userName(),
         Faker.internet.email(),
@@ -27,9 +26,9 @@ for(let i = 0; i < 3000; i++){
 
 // Insert all fake generated data to the 'users' table. 
 // ** This table needs to be created at mySQL before you execute this.
-let q = 'INSERT INTO users (email, created_at) VALUES ?';
+let q = 'INSERT INTO users (name, email, city, created_at) VALUES ?';
  
-connection.query(q, [data], function(err, result) {
+connection.query(q, [fake_data], function(err, result) {
   console.log(err);
   console.log(result);
 });
