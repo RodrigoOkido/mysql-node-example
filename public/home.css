@@ -42,7 +42,16 @@ tr:nth-child(even) {
 }
 
 
-
+/* Filters section */
 .filters {
-    margin: 10px;
+    margin: 20px;
+}
+
+.filter-label {
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+.filter-button {
+    margin-left: 20px;
 }

@@ -1,10 +1,11 @@
 <head>
     <link rel="stylesheet" href="/home.css">
+    <title>MySQL Database Example</title>
 </head>
 
 <body>
     <div class="container">
-        <h1>Fake Users database</h1>
+        <h1>Fake Users Database (MySQL)</h1>
         <div>
             <ul>
                 <li><a href="/">Home</a></li>
@@ -17,13 +18,13 @@
         <h3>Search by filters:</h3>
         <div class="filters">
             <form action="/filterBy" method="GET">
-                <label>Name:</label>
+                <label class="filter-label">Name:</label>
                 <input type="text" name="nameFilter"/>
-                <label>Email:</label>
+                <label class="filter-label">Email:</label>
                 <input type="text" name="emailFilter"/>
-                <label>City:</label>
+                <label class="filter-label">City:</label>
                 <input type="text" name="cityFilter"/>
-                <button>Apply</button>
+                <button class="filter-button">Apply</button>
             </form>
         </div>
     </div>

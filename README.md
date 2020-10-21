@@ -1,4 +1,4 @@
-# MySQL Example 
+# MySQL w/ NodeJS Example 
 Simple website developed with nodejs using MySQL as database. The database is all 
 fake and its generated using 'faker' package. It requires to be installed locally 
 to test this example. 
@@ -49,11 +49,18 @@ To install MySQL: [here](https://dev.mysql.com/downloads/mysql/)
 ```
 
 
-Inside the mysql terminal do the following commands:
+Inside MySQL terminal do the following commands:  
+  
+Create a new database called fake_users.
 ```
 CREATE DATABASE fake_users;
+```
+Use this created database to manipulate any data on it.
+```
 USE fake_users;
-
+```
+Create a new table called users inside this database.
+```
 CREATE TABLE users (
     name VARCHAR(60),
     email VARCHAR(60),
