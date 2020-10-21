@@ -16,9 +16,40 @@
         </div>
         <h3>Search by filters:</h3>
         <div class="filters">
-            <label>Name:</label>
-            <input type="text" />
+            <form action="/filterBy" method="GET">
+                <label>Name:</label>
+                <input type="text" name="nameFilter"/>
+                <label>Email:</label>
+                <input type="text" name="emailFilter"/>
+                <label>City:</label>
+                <input type="text" name="cityFilter"/>
+                <button>Apply</button>
+            </form>
         </div>
+    </div>
+    <div>
+        <form method="GET">
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th>Created at</th>
+                </tr>
+                <% for (var i = 0; i < usersData.length ; i++) { %>
+                    <% let name = usersData[i].name;
+                       let email = usersData[i].email;
+                       let city = usersData[i].city;
+                       let created = usersData[i].created_at; %>
+                    <tr>
+                        <td><%= name %></td> 
+                        <td><%= email %></td> 
+                        <td><%= city %></td> 
+                        <td><%= created %></td> 
+                    </tr>
+                <% } %>
+            </table>
+        </form>
     </div>
 
 </body>
