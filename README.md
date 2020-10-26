@@ -21,8 +21,8 @@ Used MySQL version: **v8.0.21 for Linux on x86_64 (MySQL Community Server - GPL)
 
 
 ## Installation Guide (Local) - Ubuntu(20.04)
-To test this example on your local machine, you must have mysql and nodejs installed on 
-your machine. This guide was made using Ubuntu 20.04.
+To test this example on your local machine, you must have mysql and nodejs installed 
+on your machine. This guide was made using Ubuntu 20.04.
 
 To install node:
 ```
@@ -70,7 +70,8 @@ CREATE TABLE users (
 ```
 
 
-Once you done this, you can clone this repository (if you haven't yet) and run the following steps at your terminal:
+Once you done this, you can clone this repository (if you haven't yet) and run 
+the following steps at your terminal:
 
 ```
 1. npm install
@@ -81,6 +82,32 @@ Once you done this, you can clone this repository (if you haven't yet) and run t
 
 You should be able to see a simple webpage with some actions available to you 
 interact with the database. 
+
+## Common Problems
+If you receive a error message about password on your terminal like this: 
+
+```
+Access denied for user 'root@localhost' (using password:NO)
+```
+
+Enter again in mysql and execute the following steps:
+
+```
+mysql> FLUSH PRIVILEGES;
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+```
+On "MyNewPass" put a new password at your preference. Remember to insert 
+your defined password on the database after that at app.js and generateData.js.
+
+```
+// Connect to MySQL localhost.
+let connection = MySQL.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  database : 'fake_users',
+  password : 'MyNewPass' <=== HERE!
+});
+```
 
 
 
